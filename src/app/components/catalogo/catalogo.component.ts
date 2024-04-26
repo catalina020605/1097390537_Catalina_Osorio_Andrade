@@ -1,19 +1,33 @@
-import { Component } from '@angular/core';
-import {CartServicesService} from './../../services/cart-services.service'
+import { ApplicationInitStatus, Component, OnInit } from '@angular/core';
+import {CartServicesService} from './../../services/cart-services.service';
+import { AppServiceTsService } from '../../services/app.service.ts.service';
+
 
 @Component({
   selector: 'app-catalogo',
   templateUrl: './catalogo.component.html',
-  styleUrl: './catalogo.component.scss'
+  styleUrls: ['./catalogo.component.css']
 })
 
 
-export class CatalogoComponent {
+export class CatalogoComponent implements OnInit {
+
+    public productos: any[] = [];
   
     // inyectar la dependencia del servicio en el constructor.
-    constructor(private cartServicesService: CartServicesService){
-  
+    constructor(
+      private cartServicesService: CartServicesService,
+      private apiServices: AppServiceTsService
+    )
+      { }
+
+      ngOnInit(): void {
+        this.apiServices.getProducts()
+          .subscribe((res: any) => {
+            this.productos = res;
+          });
     }
+
   // crea un método para añadir un producto al carrito
   addToCart(product: any) { 
 
@@ -112,7 +126,7 @@ export class CatalogoComponent {
       description: 'Product Description',
       inventory: 10,
       image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-      cantidad:0
-    }
-]
+      cantidad: 0
+    }, 
+  ]
 }

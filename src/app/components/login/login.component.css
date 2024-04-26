@@ -1,56 +1,71 @@
-/* Estilos para el formulario */
-form {
-    width: 320px;
-    border-radius: 0.75rem;
-    background-color: rgba(17, 24, 39, 1);
-    padding: 2rem;
-    color: rgba(243, 244, 246, 1);
-    margin: 0 auto;
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+
+  .login-form {
+    max-width: 300px;
+    width: 100%;
+    padding: 25px;
+    border: 1px solid #8e40bb;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+    .form-title {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #8e40bb;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #bc8ad8;
+      }
+
+      input {
+        width: 100%;
+        padding: 15px;
+        border: 1px solid #bc8ad8;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 16px;
+      }
+
+      input:focus {
+        outline: none; /* Quita el contorno predeterminado */
+        border-bottom: 2px solid rgb(199, 114, 255); /* Cambia el borde inferior */
+        box-shadow: 0px 0px 5px rgba(199, 114, 255, 0.5); /* Agrega una sombra */
+      }
+    }
+
+    button {
+      width: 100%;
+      margin: 20px 0;
+      padding: 15px;
+      color: #fff;
+      background-color: #8e40bb;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #bc8ad8;
+    }
+  }
+  .error-message {
+    color: red;
   }
 
-  h1{
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 2rem;
-    text-align: center;
+  .success-message {
+    color: green;
   }
-  
-  /* Estilos para el grupo de entrada */
-  input[type="email"],
-  input[type="password"] {
-    width: 90%;
-    border-radius: 0.375rem;
-    border: 1px solid rgba(55, 65, 81, 1);
-    outline: 0;
-    background-color: rgba(17, 24, 39, 1);
-    padding: 0.75rem 1rem;
-    color: rgba(243, 244, 246, 1);
-    margin-bottom: 1rem; /* Espaciado inferior */
-  }
-  
-  /* Estilos para los mensajes de error */
-  span {
-    color: red;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    margin-bottom: 1rem; /* Espaciado inferior */
-  }
-  
-  /* Estilos para el botón de enviar */
-  button {
-    width: 100%;
-    background-color: rgba(167, 139, 250, 1);
-    padding: 0.75rem;
-    text-align: center;
-    color: rgba(17, 24, 39, 1);
-    border: none;
-    border-radius: 0.375rem;
-    font-weight: 600;
-    cursor: pointer;
-  }
-  
-  button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  
+}

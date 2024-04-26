@@ -40,6 +40,6 @@ export class CartServicesService {
 
   // Método para vaciar el carrito
   clearCart(): void {
-    this.cart = [];
-  }
+    this.cart=[];
+}
 }
